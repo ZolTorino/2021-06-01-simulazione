@@ -30,7 +30,7 @@ public class FXMLController {
     private Button btnCreaGrafo; // Value injected by FXMLLoader
 
     @FXML // fx:id="cmbGeni"
-    private ComboBox<?> cmbGeni; // Value injected by FXMLLoader
+    private ComboBox<Genes> cmbGeni; // Value injected by FXMLLoader
 
     @FXML // fx:id="btnGeniAdiacenti"
     private Button btnGeniAdiacenti; // Value injected by FXMLLoader
@@ -47,18 +47,19 @@ public class FXMLController {
     @FXML
     void doCreaGrafo(ActionEvent event) {
     	
-
+    	txtResult.setText(model.creaGrafo());
+    	cmbGeni.getItems().addAll(model.vertici());
     }
 
     @FXML
     void doGeniAdiacenti(ActionEvent event) {
-
+    	txtResult.setText(model.adiacenti(cmbGeni.getValue()));
     	
     }
 
     @FXML
     void doSimula(ActionEvent event) {
-
+    	model.init(cmbGeni.getValue(), Integer.parseInt(txtIng.getText()));
     }
 
     @FXML // This method is called by the FXMLLoader when initialization is complete

@@ -5,7 +5,16 @@ public class Genes {
 	private String geneId;
 	private String essential;
 	private int chromosome;
+	private int ing=0;
 	
+	public int getIng() {
+		return ing;
+	}
+
+	public void setIng(int ing) {
+		this.ing = ing;
+	}
+
 	public Genes(String geneId, String essential, int chromosome) {
 		super();
 		this.geneId = geneId;
